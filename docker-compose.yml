@@ -1,0 +1,34 @@
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: release_checklist_db
+    environment:
+      POSTGRES_DB: release_checklist_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d release_checklist_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: ReleaseChecklist.Api/Dockerfile
+    container_name: release_checklist_api
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=release_checklist_db;Username=postgres;Password=1234
+    ports:
+      - "5226:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:

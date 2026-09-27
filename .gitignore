@@ -1,0 +1,15 @@
+# .NET / C#
+bin/
+obj/
+.vs/
+*.user
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log
+
+# Environment / Local settings
+appsettings.Development.json
+.env

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ReleaseChecklist.Api/ReleaseChecklist.Api.csproj" />
+  <Project Path="ReleaseChecklist.Tests/ReleaseChecklist.Tests.csproj" />
+</Solution>
