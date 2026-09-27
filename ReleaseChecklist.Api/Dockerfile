@@ -1,9 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 
+# Copy project file and restore dependencies
 COPY ["ReleaseChecklist.Api/ReleaseChecklist.Api.csproj", "ReleaseChecklist.Api/"]
 RUN dotnet restore "ReleaseChecklist.Api/ReleaseChecklist.Api.csproj"
 
+# Copy everything else and build
 COPY . .
 WORKDIR "/src/ReleaseChecklist.Api"
 RUN dotnet build "ReleaseChecklist.Api.csproj" -c Release -o /app/build

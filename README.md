@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Release Checklist Tool
 
 A production-grade full-stack Release Checklist application built with **.NET 10**, **Hot Chocolate GraphQL**, **Entity Framework Core 10**, **PostgreSQL 17**, and an **Angular 19 (Standalone)** frontend using **Apollo Client**.
@@ -64,3 +65,6 @@ query GetReleasesAndSteps {
     updatedAt
   }
 }
+=======
+# ReleaseChecklist
+>>>>>>> c159f7dd74e68283510dd3b163d95e01141d4255
